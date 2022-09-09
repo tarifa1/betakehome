@@ -18,3 +18,5 @@
 - Read db table data using SQLAlchemy instead of pandas.read_db 
 - Move SQLAlchemy classes to models.py
 - Move app routes to routes.py
+- Add prod docker-compose, prod db env files
+- Add nginx and gunicorn support for prod
