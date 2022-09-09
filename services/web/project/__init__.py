@@ -227,9 +227,3 @@ def waybills_location(waybill_id):
     stmt =f'select a.* from locations a join waybills b on a.id = b.origin_id where b.id = {waybill_id} union select a.* from locations a join waybills b on a.id = b.destination_id where b.id ={waybill_id};'
     x = pd.read_sql(stmt,con=engine)
     return jsonify(x.to_json(orient='records'))
-
-# foreign keys! SQLAlchemy foreign key constraints were causing issues with dropping tables (not cascading) - have to debug that
-# filter events by posting_date: update filtering to be done via body params instead of url params i.e - request.args.get('posting_date'); add filtering by sql comparison operators (<,>,=, <=, >=) 
-# read db table data using SQLAlchemy instead of pandas.read_db 
-# move SQLAlchemy classes to models.py
-# move app routes to routes.py

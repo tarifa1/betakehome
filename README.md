@@ -1,4 +1,4 @@
-#How to Use This App
+# How to Use This App
 
 - From the top level directory, run `docker-compose up -d --build`
 - To create databases, run `docker-compose exec web python manage.py create_db`
@@ -11,3 +11,10 @@
     - Examples:
         - `/waybills/7`
         - `/waybills/6/equipment`   
+
+# To Do
+- Foreign keys! SQLAlchemy foreign key constraints were causing issues with dropping tables (not cascading) - have to debug that
+- Filter events by posting_date: update filtering to be done via body params instead of url params i.e - request.args.get('posting_date'); add filtering by sql comparison operators (<,>,=, <=, >=) 
+- Read db table data using SQLAlchemy instead of pandas.read_db 
+- Move SQLAlchemy classes to models.py
+- Move app routes to routes.py
